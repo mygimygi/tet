@@ -603,12 +603,12 @@
                     {/* Controls */}
                     <div className="mt-auto w-full max-w-xl xl:hidden pb-4">
                         <div className="flex justify-between items-end px-4">
+                            {/* Left: D-Pad */}
                             <div className="grid grid-cols-3 gap-1">
                                 <div />
-                                <button onPointerDown={(e) => {e.preventDefault(); handleRotate();}} className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center active:bg-blue-500 shadow-lg">
-                                    <i data-lucide="rotate-cw" size="20"></i>
-                                </button>
+                                <div className="w-12 h-12" /> {/* Empty space where rotate was */}
                                 <div />
+                                
                                 <button onPointerDown={(e) => {e.preventDefault(); move({ x: -1, y: 0 });}} className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center active:bg-white/20 shadow-lg">
                                     <i data-lucide="arrow-left" size="20"></i>
                                 </button>
@@ -619,9 +619,12 @@
                                     <i data-lucide="arrow-right" size="20"></i>
                                 </button>
                             </div>
-                            <button onPointerDown={(e) => {e.preventDefault(); while(move({x:0, y:1})); lockPiece();}} 
-                                    className="w-20 h-20 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(59,130,246,0.5)] active:scale-95 transition-transform">
-                                <span className="font-black text-xs uppercase">Drop</span>
+
+                            {/* Right: Rotate Button (Moved from D-Pad) */}
+                            <button onPointerDown={(e) => {e.preventDefault(); handleRotate();}} 
+                                    className="w-20 h-20 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-full flex flex-col items-center justify-center shadow-[0_0_20px_rgba(59,130,246,0.5)] active:scale-95 transition-transform">
+                                <i data-lucide="rotate-cw" size="28" className="mb-1"></i>
+                                <span className="font-black text-[10px] uppercase">Rotate</span>
                             </button>
                         </div>
                     </div>
